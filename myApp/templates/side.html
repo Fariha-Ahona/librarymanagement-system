@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Showcase</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: blueviolet;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.532);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-height: 300px; 
+            max-width:550px;
+            overflow-y: auto;
+        }
+
+        .books-wrapper {
+            display: flex;
+            flex-direction: column; /* Arrange books in a vertical column */
+        }
+
+        .book-card {
+            position: relative;
+            width: 200px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.5);
+            margin: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .book-card:hover {
+            transform: scale(1.1);
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 70%;
+            transition: filter 0.3s ease-in-out;
+        }
+
+       
+        .book-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            border-radius: 0 0 10px 10px;
+            transition:bottom backdrop-filter 0.3s linear;
+            opacity: 0;
+            background: rgba(255, 255, 255, 0.236);
+        }
+
+        .book-card:hover .book-info {
+            opacity: 1;
+            backdrop-filter: blur(15px);
+        }
+
+        .book-info h3,
+        .book-info p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-container">
+        <div class="book-card">
+            <div class="book-cover">
+                <img src="Books_Image/5.jpg"width="200px"height="320px" alt="">
+            </div>
+            <div class="book-info">
+                <h3>Book Title 1</h3>
+                <p>Author: John Doe Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure, molestiae porro, doloribus incidunt magnam totam fugiat ducimus harum voluptas reprehenderit in delectus deleniti, possimus voluptatum nemo eius eligendi! Consectetur, nostrum.</p>
+            </div>
+        </div>
+        <div class="book-card">
+            <div class="book-cover">
+                <img src="Books_Image/3.jpg"width="200px"height="320px" alt="">
+            </div>
+            <div class="book-info">
+                <h3>Book Title 2</h3>
+                <p>Author: Jane Smith
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil numquam quia minima laudantium nemo error ratione reprehenderit, necessitatibus recusandae eos dicta consequatur dolorum tempora excepturi nesciunt. Consequatur dolor quos deserunt!
+                </p>
+            </div>
+        </div>
+        <div class="book-card">
+            <div class="book-cover">
+                <img src="Books_Image/2.jp"width="200px"height="320px" alt="">
+            </div>
+            <div class="book-info">
+                <h3>Book Title 3</h3>
+                <p>Author: Robert Johnson
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis architecto magnam cumque doloremque illum labore tenetur, et earum in, soluta maiores omnis? Doloribus velit nemo rerum pariatur voluptates commodi eaque.
+                </p>
+            </div>
+        </div>
+        <div class="book-card">
+            <div class="book-cover">
+                <img src="Books_Image/1.jpg"width="200px"height="320px" alt="">
+            </div>
+            <div class="book-info">
+                <h3>Book Title 4</h3>
+                <p>Author: Emily Davis
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore et eum laboriosam nulla impedit neque adipisci perspiciatis voluptates, fugit mollitia illum suscipit, nihil odit. Dolorum officia minus doloribus velit veritatis.
+                </p>
+            </div>
+        </div>
+        <div class="book-card">
+            <div class="book-cover">
+                <img src="Books_Image/10.jpg"width="200px"height="320px" alt="">
+            </div>
+            <div class="book-info">
+                <h3>Book Title 4</h3>
+                <p>Author: Emily Davis
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore et eum laboriosam nulla impedit neque adipisci perspiciatis voluptates, fugit mollitia illum suscipit, nihil odit. Dolorum officia minus doloribus velit veritatis.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

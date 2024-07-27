@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/09f8cf4725.js" crossorigin="anonymous"></script>
+
+  <!--<link rel="stylesheet" href="about.css">-->
+    <title>About Us</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(180deg, #ad8bb1 0%, #2a5470 100%);
+    font-family:'Poppins', sans-serif;
+}
+
+.top {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ 
+}
+
+.top ul {
+    display: flex;
+    font-size: 50px;
+    width: 100%;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.top li {
+    height: 50px;
+}
+
+.top a {
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.logo {
+    width: 200px;
+    height: 120px;
+    cursor: pointer;
+}
+
+
+#texti {
+    background: linear-gradient(to right, rgb(97, 177, 217), #fff 35%, #e93dad);
+    background-size: 100% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 3s linear infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 70%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 70%;
+    }
+}
+
+.about {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px 10px;
+   
+}
+
+.about #us {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+    max-width: 600px;
+    height:210px;
+    margin-bottom: 30px;
+}
+
+.about img {
+    border-radius: 10px 10px;
+}
+
+.vission {
+    display: flex;
+    padding: 20px 10px;
+    justify-content: flex-end;
+}
+
+.vission #vis {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+    max-width: 600px;
+    height:210px;
+    margin-bottom: 30px;
+}
+
+.vission img {
+    border-radius: 10px;
+}
+
+.service{
+    display: flex;
+    padding: 20px 10px;
+    justify-content: flex-start;
+}
+.service #ser {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px 150px; /* Adjust the padding to your preference */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.service .sidebar {
+    width: 100%; 
+}
+
+.service .nav {
+    list-style-type: none;
+    padding: 5px 0;
+    margin: 0;
+}
+
+.service .nav-item {
+    padding: 1px;
+    margin: 5px 0;
+    border-left: 2px solid rgb(53, 5, 68);
+    transition: 0.5s;
+    cursor: pointer;
+    color: black;
+}
+
+.service .nav-item a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.service .nav-item:hover {
+    background-color: rgba(213, 114, 233, 0.2);
+    font-size:larger;
+}
+.service img {
+    border-radius: 10px;
+}
+
+.collection{
+    display: flex;
+    padding: 20px 10px;
+    justify-content: flex-end;
+}
+
+.collection #col {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px 150px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+    position: relative;
+    max-width: 300px;
+    margin-bottom: 10px;
+}
+
+.collection .sidebar {
+    width: 100%; 
+}
+
+.collection .nav {
+    list-style-type: none;
+    padding: 5px 0;
+    margin: 0;
+}
+
+.collection .nav-item {
+    padding: 1px;
+    margin: 5px 0;
+    border-left: 2px solid rgb(53, 5, 68);
+    transition: 0.5s;
+    cursor: pointer;
+    color: black;
+}
+
+.collection .nav-item a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.collection .nav-item:hover {
+    background-color: rgba(229, 131, 236, 0.2);
+    font-size: larger;
+}
+
+.collection img {
+    border-radius: 10px;
+}
+
+.staff{
+ display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+margin: 0;
+
+}
+
+.card {
+width: 200px;
+height: 250px;
+background: rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(10px);
+border-radius: 20px;
+padding: 20px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+margin: 20px;
+}
+
+.card img {
+width: 120px;
+height: 120px;
+border-radius: 50%;
+object-fit: cover;
+margin-bottom: 20px;
+}
+
+.card h2 {
+font-size: 24px;
+margin-bottom: 10px;
+}
+
+.card:hover p {
+font-size: 16px;
+color: #888;
+}
+    </style>
+</head>
+<body>
+   <div class="top">
+    <ul>
+        <li id="texti" ><a href=""><img src="../static/Books_Image/Logo.png"class="logo" alt=""></a>
+        </li>
+    </ul>
+   </div>
+   <div class="about">
+    <div>
+        <img src="../static/Books_Image/about.jpg" width="250px" height="250px" alt="">
+    </div>
+    <div id="us">
+        <h2>About us</h2>
+        <p>
+            Welcome to BIBLIOPHILE, your go-to destination for a literary adventure! At BIBLIOPHILE, we're passionate about connecting readers with the stories they love, offering a unique blend of book rentals, exclusive memberships, and captivating literary events.
+
+        </p>
+    </div>
+  
+   </div>
+   <div class="vission">
+    <div id="vis">
+        <h2>Our Vision</h2>
+        <p>
+            At the heart of our mission is the belief that everyone deserves access to a world of stories. We strive to make reading accessible, affordable, and enjoyable for book lovers of all kinds. Whether you're a voracious reader or just starting your literary journey, [Your Website Name] is here to accompany you on your quest for knowledge and entertainment.
+
+        </p>
+    </div>
+    <div>
+        <img src="../static/Books_Image/Vision.jpg" width="250px"height="250px" alt="">
+    </div>
+   </div>
+   <div class="service">
+    <div>
+        <img src="../static/Books_Image/Library-Serve.jpg" width="250px" height="250px" alt="">
+    </div>
+    <div id="ser">
+        <h2>Library Services</h2>
+        <p>
+            <div class="sidebar">
+                <ul class="nav">
+                    <li class="nav-item"><a href=""> <span>Library Card</span></a>
+                    </li>
+                    <li class="nav-item"><a href=""><span>Kids & Teens Education</span></a></li>
+                    <li class="nav-item"><a href=""><span>Reading Space</span></a></li>
+                    <li class="nav-item"><a href=""><span>Buy Coffe with Books</span></a></li>
+                    
+
+                </ul>
+            </div>
+        </p>
+    </div>
+ 
+   </div>
+   <div class="collection">
+    <div id="col">
+        <h2>What we offer</h2>
+        <p>
+            <div class="sidebar">
+                <ul class="nav">
+                    <li class="nav-item"><a href=""><span>HardCopy</span></a></li>
+                    <li class="nav-item"><a href=""><span>E-Books</span></a></li>
+                    <li class="nav-item"><a href=""> <span>Audio-Books<span></a></li>
+                    <li class="nav-item"><a href=""><span>Journals</span></a></li>
+                </ul>
+            </div>
+        </p>
+    </div>
+    <div>
+        <img src="../static/Books_Image/reference-interaction-01.jpg" width="250px" height="250px" alt="">
+    </div>
+   </div>
+   
+   <div class="staff">
+    <h1>The Bibliophile's</h1>
+    <div class="card">
+        <img src="../static/Books_Image/fatema.jpg" alt="Staff Member 1">
+        <h2>Fatema</h2>
+        <p>Position: Developer</p>
+    </div>
+    
+    <div class="card">
+        <img src="../static/Books_Image/Isma.jpg" alt="Staff Member 2">
+        <h2>Isma</h2>
+        <p>Position: Developer</p>
+    </div>
+    <div class="card">
+        <img src="../static/Books_Image/fariha.jpg" alt="Staff Member 2">
+        <h2>Fariha</h2>
+        <p>Position: Developer</p>
+    </div>
+    
+
+   </div>
+</body>
+</html>

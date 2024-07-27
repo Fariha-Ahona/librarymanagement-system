@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <style>
+        body {
+            margin: 0;
+            font-family: 'El Messiri', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #ad8bb1 0%, #8abee0 100%);
+            color: #1b1a1a;
+          
+        }
+        .banner{
+  width:100%;
+  height:480vh;
+  
+  background: size cover;
+  background-position: center;
+}
+
+  .logo{
+    width:200px;
+    height: 120px;
+   cursor:pointer;
+  
+  }
+  .content{
+    width:100%;
+    position:absolute;
+    top:20%;
+    transform: translateY(-100%);
+    text-align: center;
+    color: #000000ca;
+    border-radius: 5px;
+  }
+  .content h1{
+    font-size:200px;
+    margin-top: 80px;
+    text-transform: uppercase;
+
+  }
+  .content p{
+    color:rgb(0, 0, 0);
+    margin:200px auto;
+    font-weight: 100;
+    line-height:25px;
+  }
+  /* Add these styles for the navigation bar */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(180deg, #ad8bb1 0%, #8abee0 100%);
+    padding: 70px;
+    border-radius: 15px; /* Add border-radius for glassmorphism effect */
+    backdrop-filter: blur(16px); /* Add backdrop-filter for glassmorphism effect */
+}
+
+.nav a {
+    font-size: 20px; /* Set the font size for option text */
+    text-transform: uppercase;
+    color: #0a0a0a;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 13px; /* Add border-radius for glassmorphism effect */
+    transition: all 0.2s linear;
+}
+
+.nav a:hover {
+    cursor: pointer;
+    background-color: #c1a3ec;
+    color: #000;
+
+}
+
+.logo {
+    width: 200px;
+    height: 120px;
+    cursor: pointer;
+}
+
+/* Remove the existing nav styles */*nav {
+    .topnav {
+        overflow: hidden;
+        background: linear-gradient(180deg, #ad8bb1 0%, #8abee0 100%);
+    }
+    .topnav input[type=text] {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        color: #000000ca;
+    }
+    @media screen and (max-width: 5000px) {
+        .topnav a, .topnav input[type=text] {
+            float: none;
+            display: block;
+            text-align: left;
+            width: 100%;
+            margin: 0;
+            padding: 14px;
+        }
+        .topnav input[type=text] {
+            border: 1px solid #ccc;
+            margin-top: 8px;
+        }
+    }
+}
+
+   
+/* Update the styles for the search bar */
+.nav input[type=search] {
+    width: 40%; 
+    padding: 10px; 
+    border: none;
+    border-radius: 60px; 
+    font-size: 18px; 
+}
+
+/* Optionally, you can adjust the styles for the placeholder text */
+.nav input[type=search]::placeholder {
+    color: #000000ca;
+    opacity: 1;
+    font-size: 16px; /* Set the font size for the placeholder text */
+}
+
+            display: flex;
+            justify-content: space-around;
+            background: linear-gradient(180deg, #ad8bb1 0%, #8abee0 100%);
+            padding: 10px;
+        }
+
+        section {
+            padding: 14px;
+            background: linear-gradient(180deg, #ad8bb1 0%, #8abee0 100%);
+        }
+
+        h2 {
+            color: #493e5f;
+        }
+
+        .sub-feature {
+            display: none;
+            padding: 10px;
+            background-color: #c696ca;
+            margin-top: 100px;
+        }
+
+        .sub-feature.active {
+            display: block;
+        }
+
+        a {
+            color: #0a0a0a;
+            cursor: pointer;
+        }
+        .glass-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            text-align: left;
+        }
+
+        .blog-post {
+            margin-bottom: 30px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .blog-post:hover {
+            transform: scale(1.05);
+        }
+
+        .blog-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .blog-meta {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .blog-content {
+            line-height: 1.6;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #6c67ac;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .read-more:hover {
+            background: #49065f;
+        }
+    </style>
+    <title>Blog</title>
+</head>
+<body>
+    <div class="banner">
+        <div class="nav">
+           <img src="Books_Image/Logo.png" class="logo">
+           <nav>
+            <a onclick="showFeature('bookReview')"><b>Book Review</b></a> 
+            <a onclick="showFeature('authorSpotlight')"><b>Author Spotlight</b></a>
+            <a onclick="showFeature('childrensCorner')"><b>Children's Corner</b></a>
+            <a onclick="showFeature('latest')"><b>Latest</b></a>
+            <a onclick="showFeature('techTalk')"><b>Tech-Talk</b></a>
+            <a onclick="showFeature('guestPost')"><b>Guest Post</b></a>
+            <a onclick="showFeature('staffPick')"><b>Staff Pick</b></a>
+            <a onclick="showFeature('userReview')"><b>User Review</b></a>
+        </nav>
+    
+                </ul>
+                <div class="content">
+                    
+                    <input type="search"placeholder="Search..">
+        </div>
+        <section id="bookReview" class="sub-feature">
+            <div class="glass-container">
+                <div class="blog-post">
+                    <h3>Book Review</h3>
+                    <h2 class="blog-title">"Ikigai" by Hector Garcia</h2>
+                    <p class="blog-meta">Published on June 1, 2022 by John Doe</p>
+                    <p class="blog-content"><h4>
+                        "Ikigai" introduces readers to the ancient wisdom of the Okinawans, who boast one of the highest life expectancies in the world. García, along with co-author Francesc Miralles, weaves together personal stories, interviews, and research to unravel the essence of ikigai – the convergence of passion, vocation, mission, and profession.</h4>
+                    </p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+        
+                <div class="blog-post">
+                    <h2 class="blog-title">Dopamin Detox by Thibaut</h2>
+                    <p class="blog-meta">Published on June 5, 2022 by Jane Smith</p>
+                    <p class="blog-content">
+                    <h4>  Do you keep procrastinating? Do you feel restless and unable to focus on your work? Do you have trouble getting excited about major goals?</h4>
+If so, you might need a dopamine detox
+                    </p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="blog-post">
+                    <h2 class="blog-title">The Night Circus</h2>
+                    <p class="blog-meta">Published on June 5, 2022 by Jane Smith</p>
+                    <p class="blog-content">
+                    <h4>  "The Night Circus" is a mesmerizing journey into a world of enchantment and magic. Written by Erin Morgenstern, this fantasy novel captivates readers with its vivid imagery, intricate plot, and a touch of romance</h4>
+
+                    </p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+        
+           
+            <!-- Add Book Review content here -->
+        </section>
+    
+        <section id="authorSpotlight" class="sub-feature">
+            <div class="glass-container">
+                <div class="blog-post">
+                    <h3>Author Spotlight</h3>
+                    <h2 class="blog-title"> Leo Tolstoy</h2>
+                    <p class="blog-meta">Published on march 12, 2022 by Harry</p>
+                    <p class="blog-content">
+                    <h4> Best known for "War and Peace" and "Anna Karenina."
+                        Tolstoy's works are celebrated for their deep philosophical insights, intricate character development, and exploration of the human condition.</h4>
+                    </p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+        
+                <div class="blog-post">
+                    <h2 class="blog-title"> Haruki Murakami</h2>
+                    <p class="blog-meta">Published on augest 5, 2022 by Smith</p>
+                    <p class="blog-content"><h4>
+                    
+Known for works like "Norwegian Wood," "Kafka on the Shore," and "1Q84."
+Murakami blends surreal elements with everyday life, creating a unique and mesmerizing narrative style that resonates with a global audience.</h4>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="blog-post">
+                    <h2 class="blog-title">  Erin Morgenstern</h2>
+                    <p class="blog-meta">Published on augest 5, 2022 by Smith</p>
+                    <p class="blog-content"><h4>
+                    
+
+                        Erin Morgenstern is an American author known for her enchanting and imaginative storytelling. She was born on July 8, 1978, in Marshfield, Massachusetts. Morgenstern gained widespread recognition with her debut novel, "The Night Circus," which was published in 2011.</h4>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+
+        </section>
+    </section>
+    
+    <section id="childrensCorner" class="sub-feature">
+        <div class="glass-container">
+            <div class="blog-post">
+                <h3>Children's Corner</h3>
+                <h2 class="blog-title"> Books that help children to grow mindset</h2>
+                <p class="blog-meta">Published on janurary 1, 2022 by mikkan</p>
+                <p class="blog-content"><h4>"The Power of Yet" by Maryann Cocca-Leffler,<br>
+                    Beautiful Oops!" by Barney Saltzberg<br>
+                    Mindset: The New Psychology of Success" by Carol S. Dweck<br>
+                    Your Fantastic Elastic Brain" by JoAnn Deak, Ph.D.</h4><br>
+                </p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+    
+            <div class="blog-post">
+                <h2 class="blog-title"> A way to build knowledge for kids</h2>
+                <p class="blog-meta">Published on augest 5, 2022 by Mr.hasin</p>
+                <p class="blog-content">
+ <h4>We show narate thise  story that helps children see problems as opportunities for growth. It encourages a positive mindset towards facing challenges. 
+    <br>We should tale of creativity, perseverance, and the importance of embracing failure as a part of the learning process. It celebrates the spirit of invention and innovation.</h4>
+
+                <a href="#" class="read-more">Read More</a>
+            </div>
+    
+    </section>
+    <section id="latest" class="sub-feature">
+        <div class="glass-container">
+            <div class="blog-post">
+                <h3>Latest</h3>
+                <h2 class="blog-title">New colletion for fiction</h2>
+                <p class="blog-meta">Published on June 1, 2022 by John Doe</p>
+                <p class="blog-content"> <h4>the literary world is continually evolving with exciting and diverse stories across various genres. Here are some notable fiction releases from various genres that were popular or highly anticipated
+                   <br>Project Hail Mary" by Andy Weir
+                   <br>The Push" by Ashley Audrain
+                   <br>The Four Winds" by Kristin Hannah
+                   <br>No One Is Talking About This" by Patricia Lockwood</h4>
+                </p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+    
+            <div class="blog-post">
+                <h2 class="blog-title">On board books</h2>
+                <p class="blog-meta">Published on July 5, 2022 by Jane </p>
+                <p class="blog-content">
+                  <h4>Author MK Samayth is published a book name "The Flame" that was a hyped one over the asia .</h4>
+                </p>
+                <a href="#" class="read-more">Read More</a>
+                </div>
+            </section>
+        <!-- Repeat the above section for other sub-features -->
+        <section id="techTalk" class="sub-feature">
+            <div class="glass-container">
+                <div class="blog-post">
+                    <h3>Latest</h3>
+                    <h2 class="blog-title">Technology</h2>
+                    <p class="blog-meta">Published on feb 1, 2022 by Doe</p>
+                    <p class="blog-content"> <h4>Technology is a rapidly evolving field, and there are always new books covering various aspects of it. Here are some recent and noteworthy tech books across different domains<br>
+                        "The Pragmatic Programmer: Your Journey to Mastery" by Dave Thomas and Andy Hunt:
+                        A classic in software development, this book has been updated to reflect modern development practices and tools.<br>
+                        "Clean Architecture: A Craftsman's Guide to Software Structure and Design" by Robert C. Martin:<br>
+                        Focuses on creating software systems that are modular, maintainable, and scalable, with an emphasis on clean architecture principles.</h4>
+                    </p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+        
+                <div class="blog-post">
+                    <h2 class="blog-title">The life Ahead with tech</h2>
+                    <p class="blog-meta">Published on may 28, 2021 by Mike</p>
+                    <p class="blog-content">
+                      <h4>Communication
+                      Social Media: Platforms like Facebook, Twitter, and Instagram connect people globally, allowing for instant sharing of updates, photos, and experiences.
+                      Messaging Apps: Apps like WhatsApp, Telegram, and Signal facilitate real-time communication, making it easy to stay in touch with friends and family. <br>
+                      Work and Productivity
+                     
+                      Remote Work: Technology enables flexible work arrangements, with many jobs allowing remote work through video conferencing, collaboration tools, and cloud services.
+                      Digital Collaboration: Tools like Slack, Microsoft Teams, and Google Workspace facilitate seamless collaboration and communication in professional settings. .</h4>
+                    </p>
+                    <a href="#" class="read-more">Read More</a>
+                    </div>
+                </section>
+                <section id="guestPost" class="sub-feature">
+                    <div class="glass-container">
+                        <div class="blog-post">
+                            <h3>Latest</h3>
+                            <h2 class="blog-title">My name is Jane </h2>
+                            <p class="blog-meta">Published on feb 21, 2022 by Jane</p>
+                            <p class="blog-content"> <h4> I'm Jane Doe, a Content Marketing Specialist at Digital Insights Co., and I'm thrilled to share insights with you today. In this post, we'll delve into the dynamic world of video content and its pivotal role in revolutionizing social media marketing strategies. So, grab your favorite beverage, and let's explore the power of visuals in our digital landscape.
+                                .</h4>
+                            </p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                
+                        <div class="blog-post">
+                            <h2 class="blog-title">The life with pie</h2>
+                            <p class="blog-meta">Published on may 28, 2021 by Mike</p>
+                            <p class="blog-content">
+                              <h4>In my personal observission i want to share with all the life of pie. <br>Hi i am a guest bloger in this site hope to give you more informatin about the life of pic .</h4>
+                            </p>
+                            <a href="#" class="read-more">Read More</a>
+                            </div>
+                        </section>
+                        <section id="staffPick" class="sub-feature">
+                            <div class="glass-container">
+                                <div class="blog-post">
+                                    <h3>Latest</h3>
+                                    <h2 class="blog-title">Our best</h2>
+                                    <p class="blog-meta">Published on April 21, 2022 by Jane</p>
+                                    <p class="blog-content"> <h4> We are providing our best blog:
+                                        <br>The life Ahead with tech </h4>
+
+                                    </p>
+                                    <a href="#" class="read-more">Read More</a>
+                                </div>
+                        
+                                <div class="blog-post">
+                                    <h2 class="blog-title">Most viewed</h2>
+                                    <p class="blog-meta">Published on may 28, 2021 by Mike</p>
+                                    <p class="blog-content">
+                                      <h4> since the very first day our audience are loving our blogs.
+                                        specialy the techblog also the books review are the best ones in our site.
+                                      </h4>
+                                    </p>
+                                    <a href="#" class="read-more">Read More</a>
+                                    </div>
+                                </section>
+                                <section id="userReview" class="sub-feature">
+                                    <div class="glass-container">
+                                        <div class="blog-post">
+                                            <h3>User review</h3>
+                                           
+                                                    <div class="blog-post">
+                                                        <h3>userReview</h3>
+                                                        <h2 class="blog-title">Whispers of Eternity" by Emily Harper</h2>
+                                                        <p class="blog-meta">Published on April 21, 2022 by Jane</p>
+                                                        <p class="blog-content"> <h4> I just finished "Whispers of Eternity," and I'm completely blown away by Emily Harper's storytelling prowess. This book is an absolute gem for fans of historical fiction and romance.
+<br>
+                                                            The narrative is beautifully woven, transporting readers to a bygone era with vivid descriptions of the setting and well-developed characters. I felt an immediate connection with the protagonist, Clara, whose journey is both heartwarming and heartbreaking.
+                                                            <br>The life Ahead with tech
+                                                        </p>
+                                                        <a href="#" class="read-more">Read More</a>
+                                                    </div>
+                                            
+                                                    <div class="blog-post">
+                                                        <h2 class="blog-title">The Enigma of Dreams</h2>
+                                                        <p class="blog-meta">Published on April 8, 2021 by Mike</p>
+                                                        <p class="blog-content">
+                                                          <h4> I recently had the pleasure of reading "The Enigma of Dreams" by [Author's Name], and I must say it was an absolute delight. The intricate storytelling, well-developed characters, and captivating plot had me hooked from the very first page.
+                                                          </h4>
+                                                        </p>
+                                                        <a href="#" class="read-more">Read More</a>
+                                                        </div>
+                                                    </section>
+                                        
+        <script>
+            function showFeature(feature) {
+                // Hide all sub-features
+                document.querySelectorAll('.sub-feature').forEach(function (element) {
+                    element.classList.remove('active');
+                });
+    
+                // Show the selected sub-feature
+                document.getElementById(feature).classList.add('active');
+    
+                // Scroll to the selected sub-feature
+                document.getElementById(feature).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        </script>
+    </body>
+    </html>
+   <!--- <div class="glass-container">
+        <div class="blog-post">
+            <h2 class="blog-title"> Book Review: "Ikigai" by Hector Garcia</h2>
+            <p class="blog-meta">Published on June 1, 2022 by John Doe</p>
+            <p class="blog-content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget facilisis nisi. Duis tincidunt, felis vel suscipit suscipit, quam ligula consequat sem, vel tincidunt odio sapien id mi.
+            </p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+
+        <div class="blog-post">
+            <h2 class="blog-title">Post Title 2</h2>
+            <p class="blog-meta">Published on June 5, 2022 by Jane Smith</p>
+            <p class="blog-content">
+                Proin efficitur facilisis nunc id suscipit. Sed gravida ipsum a tortor cursus, vel malesuada dolor luctus. In hac habitasse platea dictumst. Nullam vel vestibulum velit.
+            </p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+
+        <div class="blog-post">
+            <h2 class="blog-title">Post Title 3</h2>
+            <p class="blog-meta">Published on June 10, 2022 by Alex Johnson</p>
+            <p class="blog-content">
+                Fusce varius dapibus ligula, nec fringilla elit sollicitudin nec. Nullam vel ipsum vel orci elementum eleifend. Ut vel justo vel justo tempus fermentum nec vel elit.
+            </p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>-->
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #86aced 0%, #97acd5 100%);
+            color: #1b1a1a;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 1000px;
+            max-width: 2500px;
+            height: 350px;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(19, 1, 1, 0.1
+            );
+            backdrop-filter: blur(1px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-item {
+            border-radius: 10px;
+          /*  padding: 10px;*/
+            overflow: hidden;
+            padding: 10px;
+        }
+
+       .carousel-item img {
+        width: 150px; /* Set the desired width */
+        height: 200px; /* Maintain aspect ratio */
+        border-radius: 0px;
+        filter: brightness(50%) blur(0px);
+        transition: filter 0.3s ease-in-out;
+       }
+        .carousel-item:hover img {
+            filter: brightness(100%) blur(0);
+        }
+    </style>
+    <title>Carousel Slider</title>
+</head>
+<body>
+    <div class="carousel">
+        <a href="#one" class="carousel-item">
+            <img src="Books_Image/1.jpg" alt="Slide 1">
+        </a>
+        <a href="#two" class="carousel-item">
+            <img src="Books_Image/2.jpg" alt="Slide 2">
+        </a>
+        <a href="#three" class="carousel-item">
+            <img src="Books_Image/3.jpg" alt="Slide 3">
+        </a>
+        <a href="#four" class="carousel-item">
+            <img src="Books_Image/4.jpg" alt="Slide 4">
+        </a>
+        <a href="#five" class="carousel-item">
+            <img src="Books_Image/5.jpg" alt="Slide 5">
+        </a>
+        <a href="#six" class="carousel-item">
+            <img src="Books_Image/6.jpg" alt="Slide 6">
+        </a>
+        <a href="#seven" class="carousel-item">
+            <img src="Books_Image/7.jpg">
+        </a>
+        <a href="#eight" class="carousel-item">
+            <img src="Books_Image/8.jpg">
+        </a>
+        <a href="#nine" class="carousel-item">
+            <img src="Books_Image/10.jpg">
+        </a>
+        <a href="#ten" class="carousel-item">
+            <img src="Books_Image/11.jpg"
+            >
+        </a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.carousel').carousel({
+                indicators: true
+            });
+        });
+    </script>
+</body>
+</html>

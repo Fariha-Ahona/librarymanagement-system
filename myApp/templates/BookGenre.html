@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Genres</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #ad8bb1 0%, #8abee0 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .genre-dropdown {
+            position: relative;
+            margin-bottom: 20px;
+            /*background: rgba(255, 255, 255, 0.7);*/
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            
+        }
+
+        .genre-dropdown select {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            cursor: pointer;
+            outline: none;
+            background: transparent; /* Transparent background */
+        }
+
+        .genre-dropdown::after {
+            content: '\25BC'; /* Unicode character for down arrow */
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #f2f2f2;
+        }
+
+        .selected-genre {
+            text-align: center;
+            color: #f4f3f3;
+            
+        }
+
+        .selected-genre p {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Explore Books by Genre</h1>
+        <div class="genre-dropdown">
+            <select id="genre-select" onchange="showSelectedGenre()">
+                <option value="">Select a Genre</option>
+                <option value="fiction">Fiction</option>
+                <option value="non-fiction">Non-Fiction</option>
+                <option value="mystery">Mystery</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="science-fiction">Science Fiction</option>
+                <option value="romance">Romance</option>
+                <option value="biography">Biography</option>
+                <option value="self-help">Self-Help</option>
+                <option value="history">History</option>
+            </select>
+        </div>
+        <div class="selected-genre" id="selected-genre">
+            <p>No genre selected.</p>
+        </div>
+    </div>
+
+    <script>
+        function showSelectedGenre() {
+            var selectElement = document.getElementById("genre-select");
+            var selectedGenre = selectElement.value;
+            var selectedGenreText = selectElement.options[selectElement.selectedIndex].text;
+            var selectedGenreDisplay = document.getElementById("selected-genre");
+
+            if (selectedGenre) {
+                selectedGenreDisplay.innerHTML = "<p>Selected Genre: " + selectedGenreText + "</p>";
+            } else {
+                selectedGenreDisplay.innerHTML = "<p>No genre selected.</p>";
+            }
+        }
+    </script>
+</body>
+</html>

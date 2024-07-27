@@ -1,0 +1,466 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'El Messiri', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #ad8bb1 0%, #8abee0 100%);
+            color: #1b1a1a;
+        }
+
+        .banner {
+            width: 100%;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .content {
+            width: 100%;
+            position: relative;
+            top: 20%;
+            transform: translateY(-100%);
+            text-align: center;
+            color: #000000ca;
+            border-radius: 5px;
+        }
+
+        .content h1 {
+            font-size: 200px;
+            margin-top: 80px;
+            text-transform: uppercase;
+        }
+
+        .content p {
+            color: rgb(0, 0, 0);
+            margin: 200px auto;
+            font-weight: 100;
+            line-height: 25px;
+        }
+
+        .navi {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, #ad8bb1 0%, #8abee0 100%);
+            padding: 20px 50px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .navi a {
+            font-size: 20px;
+            text-transform: uppercase;
+            color: #0a0a0a;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 13px;
+            transition: all 0.2s linear;
+        }
+
+        .navi a:hover {
+            cursor: pointer;
+            background-color: #c1a3ec;
+            color: #000;
+        }
+
+        section {
+            padding: 14px;
+            background: linear-gradient(180deg, #ad8bb1 0%, #8abee0 100%);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: #493e5f;
+        }
+
+        .sub-feature {
+            display: none;
+            padding: 10px;
+            background-color: #c696ca;
+            margin-top: 20px;
+            border-radius: 15px;
+        }
+
+        .sub-feature.active {
+            display: block;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            text-align: left;
+            margin: 0 auto;
+        }
+
+        .blog-post {
+            margin-bottom: 30px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .blog-post:hover {
+            transform: scale(1.05);
+        }
+
+        .blog-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .blog-author {
+            font-size: 15px;
+        }
+
+        .blog-meta {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .blog-content {
+            line-height: 1.6;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #6c67ac;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .read-more:hover {
+            background: #49065f;
+        }
+    </style>
+    <title>Blog</title>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="navi">
+            <img src="../static/Books_Image/Logo.png" class="logo">
+            <nav>
+               
+                <a href="#" onclick="showFeature('bookReview'); return false;"><b>Book Review</b></a>
+                <a href="#" onclick="showFeature('authorSpotlight'); return false;"><b>Author Spotlight</b></a>
+                <a href="#" onclick="showFeature('childrensCorner'); return false;"><b>Children's Corner</b></a>
+                <a href="#" onclick="showFeature('latest'); return false;"><b>Latest</b></a>
+                <a href="#" onclick="showFeature('userReview'); return false;"><b>User Review</b></a>
+            </nav>
+        </div>
+    </div>
+    {% for feature, posts in featured_posts.items %}
+    <section id="{{ feature }}" class="sub-feature">
+        <div class="glass-container">
+            {% for post in posts %}
+            <div class="blog-post">
+                <h3>Feature: {{ post.get_feature_display }}</h3>
+                <h2 class="blog-title">{{ post.title }}</h2>
+                <h3 class="blog-author">{{ post.author }}</h3>
+                <p class="blog-meta">Published: {{ post.created_at }}</p>
+                <p class="blog-content">{{ post.content }}</p>
+                <a href="#" class="read-more">Read more</a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endfor %}
+
+    <h2>Add a New Blog Post</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function showFeature(feature) {
+            console.log('Showing feature:', feature);
+            document.querySelectorAll('.sub-feature').forEach(function (element) {
+                element.classList.remove('active');
+            });
+
+            var selectedFeature = document.getElementById(feature);
+            if (selectedFeature) {
+                selectedFeature.classList.add('active');
+                selectedFeature.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+
+</body> -->
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'El Messiri', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #ad8bb1 0%, #8abee0 100%);
+            color: #1b1a1a;
+        }
+
+        .banner {
+            width: 100%;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .content {
+            width: 100%;
+            position: relative;
+            top: 20%;
+            transform: translateY(-100%);
+            text-align: center;
+            color: #000000ca;
+            border-radius: 5px;
+        }
+
+        .content h1 {
+            font-size: 200px;
+            margin-top: 80px;
+            text-transform: uppercase;
+        }
+
+        .content p {
+            color: rgb(0, 0, 0);
+            margin: 200px auto;
+            font-weight: 100;
+            line-height: 25px;
+        }
+
+        .navi {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, #ad8bb1 0%, #8abee0 100%);
+            padding: 20px 50px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .navi a {
+            font-size: 20px;
+            text-transform: uppercase;
+            color: #0a0a0a;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 13px;
+            transition: all 0.2s linear;
+        }
+
+        .navi a:hover {
+            cursor: pointer;
+            background-color: #c1a3ec;
+            color: #000;
+        }
+
+        section {
+            padding: 14px;
+            background: linear-gradient(180deg, #ad8bb1 0%, #8abee0 100%);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: #493e5f;
+        }
+
+        .sub-feature {
+            display: none;
+            padding: 10px;
+            background-color: #c696ca;
+            margin-top: 20px;
+            border-radius: 15px;
+        }
+
+        .sub-feature.active {
+            display: block;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            text-align: left;
+            margin: 0 auto;
+        }
+
+        .blog-post {
+            margin-bottom: 30px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .blog-post:hover {
+            transform: scale(1.05);
+        }
+
+        .blog-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .blog-author {
+            font-size: 15px;
+        }
+
+        .blog-meta {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .blog-content {
+            line-height: 1.6;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #6c67ac;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .read-more:hover {
+            background: #49065f;
+        }
+
+        /* Form Styles */
+        form {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        form h2 {
+            margin-bottom: 15px;
+            color: #493e5f;
+            text-align: center;
+        }
+
+        form input,
+        form textarea,
+        form select,
+        form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        form button {
+            background: #6c67ac;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background 0.3s ease-in-out;
+        }
+
+        form button:hover {
+            background: #49065f;
+        }
+    </style>
+    <title>Blog</title>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="navi">
+            <img src="../static/Books_Image/Logo.png" class="logo">
+            <nav>
+                <a href="#" onclick="showFeature('bookReview'); return false;"><b>Book Review</b></a>
+                <a href="#" onclick="showFeature('authorSpotlight'); return false;"><b>Author Spotlight</b></a>
+                <a href="#" onclick="showFeature('childrensCorner'); return false;"><b>Children's Corner</b></a>
+                <a href="#" onclick="showFeature('latest'); return false;"><b>Latest</b></a>
+                <a href="#" onclick="showFeature('userReview'); return false;"><b>User Review</b></a>
+            </nav>
+        </div>
+    </div>
+    {% for feature, posts in featured_posts.items %}
+    <section id="{{ feature }}" class="sub-feature">
+        <div class="glass-container">
+            {% for post in posts %}
+            <div class="blog-post">
+                <h3>Feature: {{ post.get_feature_display }}</h3>
+                <h2 class="blog-title">{{ post.title }}</h2>
+                <h3 class="blog-author">{{ post.author }}</h3>
+                <p class="blog-meta">Published: {{ post.created_at }}</p>
+                <p class="blog-content">{{ post.content }}</p>
+
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endfor %}
+
+    <form method="post" enctype="multipart/form-data">
+        <h2>Add a New Blog Post</h2>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function showFeature(feature) {
+            console.log('Showing feature:', feature);
+            document.querySelectorAll('.sub-feature').forEach(function (element) {
+                element.classList.remove('active');
+            });
+
+            var selectedFeature = document.getElementById(feature);
+            if (selectedFeature) {
+                selectedFeature.classList.add('active');
+                selectedFeature.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+
+</body>
+
+</html>
+

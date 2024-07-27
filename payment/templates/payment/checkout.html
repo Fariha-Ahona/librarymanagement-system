@@ -1,0 +1,276 @@
+{% load cart_extras %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(180deg, #7b93bd 0%, #a083ac 100%);
+            color: #000;
+        }
+
+        .checkout-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            max-width: 90%;
+            margin: auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .checkout-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .checkout-items {
+            margin-bottom: 20px;
+        }
+
+        .checkout-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .checkout-item:last-child {
+            border-bottom: none;
+        }
+
+        .checkout-item-details {
+            flex: 1;
+            text-align: left;
+            margin-left: 10px;
+        }
+
+        .checkout-item-title {
+            font-weight: bold;
+        }
+
+        .checkout-item-price, .checkout-item-quantity {
+            color: #45a049;
+        }
+
+        .checkout-total {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .checkout-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-confirm {
+            background-color: #4CAF50;
+        }
+
+        .btn-confirm:hover {
+            background-color: #45a049;
+        }
+
+        .btn-cancel {
+            background-color: #ff6347;
+        }
+
+        .btn-cancel:hover {
+            background-color: #e53e3e;
+        }
+
+        .checkout-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Increased gap for better spacing */
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .form-input {
+            padding: 12px; /* Increased padding for better appearance */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #000;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-submit {
+            align-self: flex-end;
+            padding: 14px 28px; /* Increased padding for a larger button */
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none; /* Ensure no underline on hover */
+            display: inline-block; /* Ensure inline display for proper button appearance */
+        }
+
+        .form-submit:hover {
+            background-color: #45a049;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .checkout-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .checkout-btn:hover {
+            background-color: #45a049;
+        }
+
+        .checkout-items h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Additional Styles for Shipping Information */
+        .shipping-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #000;
+            margin-bottom: 20px;
+            text-align: left; /* Adjusted text alignment */
+        }
+
+        .shipping-card .card-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333; /* Darkened text color */
+        }
+
+        .shipping-card .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Increased gap for better spacing */
+            color: #333; /* Darkened text color */
+        }
+
+        .shipping-card .form-input {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #000;
+            padding: 14px; /* Increased padding for a larger input box */
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <h1 class="checkout-header">Checkout</h1>
+        
+        <div class="checkout-items">
+            <h2>Review Your Order...</h2>
+            <ul id="cart-items-list">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3">
+                            <div class="card">
+                                <div class="card-header">Order Summary</div>
+                                <br>
+                                <div class="card-body">
+                                    {% for product in cart_products %}
+                                        {{ product.name }}: ${{ product.price }}
+                                        <br>
+                                        <small>Quantity: {{ quantities|get_item:product.id }}</small>
+                                        <br><br>
+                                    {% endfor %}
+                                    <h2>Total: ${{ totals }}</h2>
+                                    <br><br><br>
+                                    <a href="{% url 'cart_summary' %}" class="checkout-btn">
+                                        <i class="fas fa-shopping-cart"></i> Back to Cart
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+
+        <div class="card shipping-card">
+            <div class="card-header">Shipping Information</div>
+            <div class="card-body">
+                <form method="POST" action="{% url 'billing_info' %}">
+                    {% csrf_token %}
+                {{ shipping_form.as_p }}
+            </div>
+        </div>
+        <button type="submit" class="form-submit">Continue</button>
+    </form>
+    </div>
+</body>
+</html>

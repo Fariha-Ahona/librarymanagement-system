@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background:url(Books_Image/back7.jpg);
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Glassmorphism effect for the library card */
+        #libraryCardContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #libraryCardForm {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 25px;
+            box-shadow: 0 25px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+            transition: 1s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        #generatedCard {
+            position: relative;
+            width: 500px;
+            height: 350px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+            transition: 1s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            perspective: 1000px;
+        }
+
+        #generatedCard:hover {
+            transform: rotateY(180deg);
+        }
+
+        #generatedCard .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #generatedCard .front {
+            z-index: 2;
+        }
+
+        #generatedCard .back {
+    
+            transform: rotateY(180deg);
+            z-index: 1;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #fff;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="libraryCardContainer">
+        <div id="libraryCardForm">
+            <label for="userName">Name:</label>
+            <input type="text" id="userNameInput" name="userName" required>
+
+            <label for="userEmail">Email:</label>
+            <input type="email" id="userEmailInput" name="userEmail" required>
+
+            <button type="button" onclick="generateLibraryCard()">Generate Card</button>
+        </div>
+
+        <div id="generatedCard">
+            <div class="card-face front">
+                <h2>Bibliophile</h2>
+                <p>Name: <span id="cardUserName"></span></p>
+                <p>Email: <span id="cardUserEmail"></span></p>
+            </div>
+            <div class="card-face back">
+                <img src="path/to/library-logo.png" alt="Library Logo" style="max-width: 100%; max-height: 100%;">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulated user profile data (replace with actual implementation)
+        const userProfile = {
+            name: "John Doe",
+            email: "john.doe@example.com",
+            profilePicture: "path/to/profile-picture.jpg"
+        };
+
+        // Function to populate the form with user profile data
+        function populateForm() {
+            document.getElementById('userNameInput').value = userProfile.name;
+            document.getElementById('userEmailInput').value = userProfile.email;
+        }
+
+        // Function to generate the library card with user input
+        function generateLibraryCard() {
+            // Use the actual profile data or form inputs
+            const userName = document.getElementById('userNameInput').value;
+            const userEmail = document.getElementById('userEmailInput').value;
+
+            // Display the library card with user details
+            document.getElementById('cardUserName').innerText = userName;
+            document.getElementById('cardUserEmail').innerText = userEmail;
+        }
+
+        // Populate the form with user profile data when the page loads
+        window.onload = populateForm;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Glassmorphism effect for the library card */
+        .library-card {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 25px;
+            box-shadow: 0 25px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+            transition: 1s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .library-card:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .library-card::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px; /* Adjust as needed */
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .library-card .content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-top: -20px; /* Match the height of ::before */
+            gap: 10px;
+        }
+
+        .library-card .content .avatar {
+            position: relative;
+            width: 60px; /* Adjust as needed */
+            height: 60px; /* Adjust as needed */
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .library-card .content .avatar img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .library-card .content .details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px; /* Adjust as needed */
+            color: #111;
+        }
+
+        .library-card .content .details div {
+            display:  flex;
+            align-items: center;
+            gap: 5px; /* Adjust as needed */
+        }
+
+        .library-card .content .details h3 {
+            font-weight: 600;
+        }
+
+        .library-card .content .details ion-icon {
+            font-size: 1em; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="profile" id="userProfile">
+        <! Profile picture will be displayed here --
+        <img id="profilePicture" src="" alt="Profile Picture">
+        <!- User's name will be displayed here -
+        <p id="userName">John Doe</p>
+        <-- User's email will be displayed here --
+        <p id="userEmail">john.doe@example.com</p>
+    </div>--->
+
+    <div class="library-card">
+        <div class="details">
+        <h2>Your Library Card</h2>
+        <form id="libraryCardForm">
+            <label for="userName">Name:</label>
+            <input type="text" id="userNameInput" name="userName" required>
+
+            <label for="userEmail">Email:</label>
+            <input type="email" id="userEmailInput" name="userEmail" required>
+
+            <button type="button" onclick="generateLibraryCard()">Generate Card</button>
+        </form>
+    </div>
+    </div> 
+
+
+    <!-- <div class="library-card" id="libraryCard">
+        <div class="content">
+            <div class="avatar">
+                <img src="Books_Image/fariha.jpg" alt="">
+            </div>
+            <div class="details">
+                <div>
+                    <h3>Fariha</h3>
+                </div>
+                <div>
+                    <ion-icon name="call-outline"></ion-icon>
+                    <span>01311809678</span>
+                </div>
+                <div>
+                    <ion-icon name="globe-outline"></ion-icon>
+                    <span>https/::fariha.com</span>
+                </div>
+                <div>
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <span>fariha@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <script>
+        // Simulated user profile data (replace with actual implementation)
+        const userProfile = {
+            name: "Fariha",
+            email: "fariha@gmail.com",
+            profilePicture: "path/to/profile-picture.jpg"
+        };
+
+        // Function to populate the form with user profile data
+        function populateForm() {
+            document.getElementById('userNameInput').value = userProfile.name;
+            document.getElementById('userEmailInput').value = userProfile.email;
+            document.getElementById('profilePicture').src = userProfile.profilePicture;
+        }
+
+        // Function to generate the library card with user input
+        function generateLibraryCard() {
+            // Use the actual profile data or form inputs
+            const userName = document.getElementById('Fariha').value;
+            const userEmail = document.getElementById('userEmailInput').value;
+
+            // Display the library card with user details
+            const libraryCardForm = document.getElementById('libraryCardForm');
+            const libraryCard = document.createElement('div');
+            libraryCard.classList.add('library-card');
+
+            libraryCard.innerHTML = `
+                <h2>Your Library Card</h2>
+                <p>Name: ${userName}</p>
+                <p>Email: ${userEmail}</p>
+            `;
+
+            libraryCardForm.parentNode.insertBefore(libraryCard, libraryCardForm.nextSibling);
+        }
+
+        // Populate the form with user profile data when the page loads
+        window.onload = populateForm;
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> -->
+</body>
+</html>

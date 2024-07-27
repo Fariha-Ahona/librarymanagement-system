@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(180deg, #ad8bb1 0%, #8abee0 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            backdrop-filter: blur(25px);
+        }
+
+        .container {
+            display: flex;
+            width: 90%;
+            height: 80vh; 
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            background: rgba(255, 255, 255, 0.2);
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .sidebar div {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .sidebar div:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .profile {
+            padding: 30px;
+            flex-grow: 8;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .user-image {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .personal-info,
+        .rented-books {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        h1, h2 {
+            color: #1b1a1a;
+        }
+
+        p {
+            color: #000000ca;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/ccc7cbef20.js" crossorigin="anonymous"></script>
+    <title>User Profile</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="notification"><i class="fa fa-bell" aria-hidden="true"></i> Notifications</div>
+            <div class="library card"><i class="fa-regular fa-id-card"></i> Library Card</div>
+        </div>
+        {% if user %}
+        <div class="profile">
+            {% if user.user_image %}
+            <img src="{{ user.user_image.url }}" alt="Profile Image">
+            {% else %}
+            <p>No profile image found.</p>
+            {% endif %}
+            <div class="personal-info">
+                <h2>Personal Information</h2>
+                <h4>Name: {{ user.username}}</h4>
+                <h4>Email:{{ user.email }}</h4>
+            </div>
+            {% else %}
+            <p>No profile found for this user.</p>
+        {% endif %}
+
+            <div class="rented-books">
+                <h2>Rented Books</h2>
+                <div class="RentedBooks">
+                    <button onclick="toggleDropdown()">Show Rented Books</button>
+                    <ul id="rentedBooksList" style="display: none;">
+                        <li><i class="fa-solid fa-circle-dot"></i>A tale of two cities</li>
+                        <li><i class="fa-solid fa-circle-dot"></i>The Alchemist</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleDropdown() {
+            var rentedBooksList = document.getElementById("rentedBooksList");
+            if (rentedBooksList.style.display === "none") {
+                rentedBooksList.style.display = "block";
+            } else {
+                rentedBooksList.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

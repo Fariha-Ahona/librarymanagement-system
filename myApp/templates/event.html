@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Events</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+
+        .top {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            background: linear-gradient(180deg, #73809786 0%, #e4cbef 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 5px;
+            padding: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .top ul {
+            display: flex;
+            font-size: 20px;
+            width: 100%;
+            list-style: none;
+            justify-content: space-between;
+        }
+
+        .top li {
+            height: 20px;
+        }
+
+        .top a {
+            height: 100%;
+            padding: 0 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .logo {
+            width: 200px;
+            height: 100px;
+            cursor: pointer;
+        }
+
+
+
+        main {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding: 2rem;
+            flex-wrap: wrap;
+            flex-grow: 1;
+        }
+        .event {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin: 1rem;
+            width: 300px;
+            
+            transition: transform 0.3s ease-in-out;
+          }
+
+        .event-card {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 1rem;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .event-card:hover {
+            transform: scale(1.05);
+        }
+
+        .img-card {
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+        }
+
+        .img-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h2 {
+            font-size: 25px;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content p {
+            font-size: 14px;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-time {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .Location {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .Location img {
+            width: 20px;
+            height: 20px;
+        }
+
+         footer {
+            background: linear-gradient(180deg, #73809786 0%, #e4cbef 100%);
+            color: #000;
+            text-align: center;
+            padding: 1rem;
+            font-size: 14px;
+            margin-top: auto; 
+        }
+     */
+
+    </style>
+</head>
+<body>
+        <div class="top">
+            <ul><a href="{% url 'home' %}"><img src="../static/Books_Image/Logo.png" class="logo" alt="Logo"></a></ul>
+        </div>
+
+    <main>
+        {% for event in events %}
+        <div class="event-card">
+            
+            <div class="img-card">
+                <img src="{{ event.image.url }}" alt="">
+            </div>
+            <div class="card-content">
+                <h2>{{ event.title }}</h2>
+
+                <div class="card-time">
+                    <p>{{ event.date }}</p>
+                    <p>{{ event.start_time }} - {{ event.end_time }}</p>
+                </div>
+                <div class="Location">
+                    <p>{{ event.location }}</p>
+                </div>
+                <p>{{ event.description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </main>
+
+    
+</body>
+</html>
